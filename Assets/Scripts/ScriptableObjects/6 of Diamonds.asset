@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcdf66d788327440b808bcf7c53146b, type: 3}
+  m_Name: 6 of Diamonds
+  m_EditorClassIdentifier: 
+  cardName: 6 of Diamonds
+  cardSprite: {fileID: 21300000, guid: 9a501a4a95fa0c646bd0d003f7b83052, type: 3}
+  suit: Diamonds
+  rank: 6
