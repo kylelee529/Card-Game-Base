@@ -68,7 +68,17 @@ public class CardHover : MonoBehaviour
         handManager.SelectCard(gameObject);
     }
 
-    public void HideTooltip() // Call this before destroying a card
+    // Method to clear the tooltip when the hand is played
+    public void ClearTooltip()
+    {
+        if (tooltip != null)
+        {
+            tooltip.HideTooltip();
+        }
+    }
+
+    // Optionally, you can call this HideTooltip method before destroying the card
+    public void HideTooltip() 
     {
         if (tooltip != null)
         {

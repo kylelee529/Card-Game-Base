@@ -129,11 +129,10 @@ public class HandManager : MonoBehaviour
             }
         }
 
-        // Calculate the score using the new system
-        var (handType, score) = PokerHandEvaluator.EvaluateHand(cardDataList);
-        pokerHandText.text = "Score: " + score.ToString(); // Convert int to string
+        // Display only the hand type, no score
+        string handType = GetPokerHandType(cardDataList);
+        pokerHandText.text = handType; // Show the hand type (e.g., "One Pair", "Straight", etc.)
     }
-
     public void PlaySelectedHand()
 {
     if (selectedCards.Count < 2) return;
@@ -167,18 +166,27 @@ public class HandManager : MonoBehaviour
         handCards.Remove(card);
         card.transform.DOKill();
         Destroy(card);
+
+        // Clear card tooltips (assuming the tooltips are linked to the CardHover script)
+        CardHover hoverScript = card.GetComponent<CardHover>();
+        if (hoverScript != null)
+        {
+            hoverScript.ClearTooltip();  // Assuming there's a method to clear the tooltip
+        }
     }
+
+    // Clear selected cards
     selectedCards.Clear();
 
-    // Display the hand type ONLY in the text (no score here)
-    pokerHandText.text = handType;
+    // Reset the hand type display (you can either hide or set a message)
+    pokerHandText.text = "";  // Clear the hand type display
 
-    // Display the final points in the score text
+    // Update the score UI with the final score
     UpdateScoreUI();
+
+    // Update card positions
     UpdateCardPositions();
 }
-
-
 
 
 // New method to calculate the multiplier for the hand type
